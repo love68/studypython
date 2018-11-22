@@ -1,4 +1,8 @@
 
+'''
+不带参数的装饰器
+'''
+
 def w(func):
     def inner():
         print("1")
