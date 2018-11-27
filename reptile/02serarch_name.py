@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import urllib
 import requests
@@ -26,9 +29,7 @@ f.write(html)
 f.close()
 '''
 with open("search.html","wb+") as f:
-    line = f.readlines()
-    line = line.rstrip('\n')
-    f.write(line)
+    f.write(html)
 
     
 
