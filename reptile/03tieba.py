@@ -26,8 +26,8 @@ def loadPage(page):
     return response.read().decode("utf-8")
 
 def handleContent(content):
-    pattern = re.compile('<div class="item_content">(.*?)</div>',re.S)
-    print(content)
+    pattern = re.compile(r'<a rel="noreferrer" href=".*?" title=".*?".*?>(.*?)</a>',re.S)
+    #print(content)
     content_list = pattern.findall(content)
     for item in content_list:
         print(item)
