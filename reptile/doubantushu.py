@@ -11,6 +11,7 @@ import urllib.request
 import re
 import time
 from lxml import etree
+from html.parser import HTMLParser
 
 class Douban(object):
 
@@ -61,11 +62,18 @@ class Douban(object):
         #print(contents.decode("utf-8"))
         for content in contents:
             #print(content.text.encode("utf-8"))
-            info = etree.tostring(content).decode("utf-8")
-            pattern = re.compile(r'".*?"',re.S)
-            cs = re.findall(pattern,info)
+            info = etree.tostring(content)
+            #print(info)
+            pattern = re.compile(r'<span.*?>(.*?)<br/>',re.S)
+            
+            cs = re.findall(pattern,info.decode("utf-8"))
             for c in cs:
-                print(c)
+                b = HTMLParser().unescape(c)
+                p1 = re.compile(r'^.*?:</span>.*?$',re.S)
+                ss = re.search(p1,b)
+                if ss:
+                    print(ss.group(0).split("span>")[1])
+                
 
 if __name__ == "__main__":
     d = Douban(1)
