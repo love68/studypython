@@ -117,10 +117,10 @@ class MaganizeSpider(object):
         #m.mag_addtime = ''
         m.mag_pubcycle = ''
 
+        #print(html_content.xpath('//a')[0].text)
         i = 0
         if len(lis)== 9:
             while i<len(lis):
-                i += 1
                 if i == 0:
                     m.mag_competent = html_content.xpath('//a')[0].text
                 elif i==1:
@@ -133,6 +133,7 @@ class MaganizeSpider(object):
                     m.mag_mailnum =lis[i][18:]
                 elif i==7:
                     m.mag_pubcycle = html_content.xpath('//a')[3].text
+                i += 1
             self.insert(m)        
             #print(m.title,m.mag_competent,m.mag_hostunit,m.mag_mailnum,m.mag_issn,m.mag_cn,m.mag_pubcycle,m.intro)
 
