@@ -13,4 +13,5 @@ class DouyuItem(scrapy.Item):
     name = scrapy.Field()#姓名
     title =scrapy.Field()#标题
     mold = scrapy.Field()#类型
+    num = scrapy.Field()#
     
