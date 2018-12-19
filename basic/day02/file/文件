@@ -1,0 +1,5 @@
+if条件不满足，
+所以程序执行else里面的代码，
+即returnself.test,
+问题就在这，
+因为return需要把hello
